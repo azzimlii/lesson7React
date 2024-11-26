@@ -33,11 +33,22 @@ const Register = () => {
     } else {
       console.log('on');
     }
-  }
+  
+  setData({
+    name: '',
+    no: '',
+    gender: '',
+    age: '',
+    email: '',
+    number: '',
+    txt: '',
+    check: false,
+  });
+}
   return (
     <>
       <div className='wrapper'>
-        <form className='user-form' onSubmit={handler}>
+        <form className='user-form' >
           <label>
             Pasiyentin SAA:
             <input value={data.name} type='text' name='name' required onChange={handleChange}></input>
@@ -49,6 +60,7 @@ const Register = () => {
           <label>
             Cins:
             <select value={data.gender} name='gender' onChange={handleChange}>
+            <option value='select'></option>
               <option value='male'>Kişi</option>
               <option value='female'>Qadın</option>
             </select>
@@ -74,7 +86,7 @@ const Register = () => {
             <input value={data.check} className='checkbox' type='checkbox' name='check' onChange={handleChange} ></input>
           </label>
           <label>
-            <button type='submit' >Göndərmək</button>
+            <button type='submit' onClick={handler} >Göndərmək</button>
           </label>
         </form>
       </div>
